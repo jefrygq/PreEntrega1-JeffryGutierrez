@@ -6,10 +6,10 @@ const ItemCount = ({initialValue, stock}) => {
     const increaseCounter = () => { (value < stock) &&setValue(value + 1) };
     const decreaseCounter = () => { (value > initialValue) && setValue(value - 1) };
     return (
-        <div>
-            <button className="btn btn-dark" onClick={decreaseCounter}>-</button>
-            {value}
-            <button className="btn btn-dark" onClick={increaseCounter}>+</button>
+        <div className="input-group mb-3">
+            <span className="input-group-text"><button className="btn" onClick={decreaseCounter}>-</button></span>
+            <input type="text" className="form-control text-center" readOnly value={value} />
+            <span className="input-group-text"><button className="btn" onClick={increaseCounter}>+</button></span>
         </div>
     );
 };
