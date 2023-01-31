@@ -15,14 +15,13 @@ const ItemListContainer = ({greeting, description}) => {
     }, []);
 
     return (
-        <>
+        <div className='container p-3'>
             <h2>{greeting}</h2>
             <p>{description}</p>
-            
             <div className="itemListContainer row g-4">
                 {products}
             </div>
-        </>
+        </div>
     );
 };
 
