@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailsContainer from './components/ItemDetailsContainer/ItemDetailsContainer';
 import NavBar from './components/NavBar/NavBar';
@@ -8,9 +9,9 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/' element={<ItemListContainer greeting={'Welcome to MyTech!'} description={'Find the best in technology and receive it at your doorstep.'} />} />
+          <Route path='/' element={<ItemListContainer />} />
           <Route path='/product/:id' element={<ItemDetailsContainer/>} />
-          <Route path='/category/:idCategory' element={<ItemListContainer/>} />
+          <Route path='/category/:categoryName' element={<ItemListContainer/>} />
         </Routes>
       </BrowserRouter>
     </>

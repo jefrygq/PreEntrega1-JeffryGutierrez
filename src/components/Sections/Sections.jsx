@@ -5,11 +5,11 @@ const Sections = () => {
     return (
         <>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
+              <Link className="nav-link active" to="/">Home</Link>
             </li>
             <Categories />
             <li className="nav-item">
-              <a className="nav-link" href="#">Contact</a>
+              <Link className="nav-link" to="/contact">Contact</Link>
             </li>
         </>
     );
