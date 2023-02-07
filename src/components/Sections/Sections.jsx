@@ -1,4 +1,5 @@
 import Categories from "../Categories/Categories";
+import { Link } from "react-router-dom";
 
 const Sections = () => {
     return (

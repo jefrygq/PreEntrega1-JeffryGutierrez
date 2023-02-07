@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({greeting, description}) => {
     const [products, setProducts] = useState([]);
+    const {idCategory} = useParams();
 
     useEffect(() => {
         fetch("./json/products.json")
