@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import CartTable from "../CarTable/CartTable";
-import ItemList from "../ItemList/ItemList";
+import CartTotals from "../CarTotals/CartTotals";
 
 const Cart = () => {
     // "id": 1,
@@ -30,7 +30,9 @@ const Cart = () => {
             <>
                 <p>Items in cart: </p>
                 <CartTable products={products} />
-                <Link to="/checkout" className="btn btn-primary">Go to payment</Link>
+                <Link to="/checkout" className="btn btn-secondary clearfix">Empty Cart</Link>
+
+                <CartTotals products={products} />
             </>
             }
             
