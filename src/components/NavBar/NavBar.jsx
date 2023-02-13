@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import SearchWidget from "../SearchWidget/SearchWidget";
 import Sections from "../Sections/Sections";
+import React from "react";
 
-function NavBar() {
+const NavBar = React.memo(() => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
@@ -22,6 +23,6 @@ function NavBar() {
       </div>
     </nav>
   );
-}
+});
 
 export default NavBar;

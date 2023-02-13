@@ -1,7 +1,8 @@
 import Categories from "../Categories/Categories";
 import { Link } from "react-router-dom";
+import React from "react";
 
-const Sections = () => {
+const Sections = React.memo(() => {
     return (
         <>
             <li className="nav-item">
@@ -13,6 +14,6 @@ const Sections = () => {
             </li>
         </>
     );
-}
+});
 
 export default Sections;
