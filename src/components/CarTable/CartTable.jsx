@@ -5,11 +5,12 @@ const CartTable = ({products}) => {
         <table className="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Imagen</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">QTY</th>
                     <th scope="col">Subtotal</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
