@@ -3,8 +3,11 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailsContainer from './components/ItemDetailsContainer/ItemDetailsContainer';
 import NavBar from './components/NavBar/NavBar';
 import Cart from './components/Cart/Cart';
+// import { loadDB } from './firebase/firebase';
 
 function App() {
+  // loadDB();
+
   return (
     <>
       <BrowserRouter>

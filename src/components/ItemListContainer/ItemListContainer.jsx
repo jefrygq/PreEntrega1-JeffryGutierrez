@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import { getProducts } from "../../firebase/firebase";
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -14,8 +15,7 @@ const ItemListContainer = () => {
     };
 
     useEffect(() => {
-        fetch("../json/products.json")
-        .then(response => response.json())
+        getProducts()
         .then(products => {
             let items = products;
             const idCategory = categoryMap[categoryName];

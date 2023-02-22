@@ -12,7 +12,7 @@ const Item = ({product}) => {
         // "stock": 30,
         // "img": "notebook-lenovo.jpg"
         <div className="card col-3">
-            <img src={`../img/${product.img}`} className="card-img-top" alt={product.name} />
+            <img src={product.img} className="card-img-top" alt={product.name} />
             <div className="card-body">
                 <h5 className="card-title">{product.nombre + ' ' + product.modelo}</h5>
                 <p className="card-text">{product.marca}</p>

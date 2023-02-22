@@ -9,7 +9,7 @@ const ItemCart = ({product}) => {
         // "stock": 30,
         // "qty: 2"
         <tr scope="row">
-            <td><img src={`../img/${product.img}`} className="img-thumbnail" width={100} alt={product.name} /></td>
+            <td><img src={product.img} className="img-thumbnail" width={100} alt={product.name} /></td>
             <td>{product.nombre}</td>
             <td>${new Intl.NumberFormat('de-DE').format(product.precio)}</td>
             <td>{product.qty}</td>

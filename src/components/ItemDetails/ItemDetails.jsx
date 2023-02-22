@@ -4,7 +4,7 @@ const ItemDetails = ({product}) => {
     return (
         <div className="row g-0">
             <div className="col-md-6">
-            <img src={`../img/${product.img}`} className="card-img-top" alt={product.name} />
+            <img src={product.img} className="card-img-top" alt={product.name} />
             </div>
             <div className="col-md-6">
                 <div className="card-body">
