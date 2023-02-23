@@ -8,7 +8,7 @@ const CartTotals = () => {
 
     const iva = 0.13;
     const subtotal = getSubtotal();
-    const taxes = subtotal*iva;
+    const taxes = subtotal * iva;
 
     return (
         <div className="col-6 float-end clearfix">
@@ -24,7 +24,7 @@ const CartTotals = () => {
                     </tr>
                     <tr>
                         <td className="fs-3"><strong>Total:</strong></td>
-                        <td className="fs-3 text-end"><strong>${subtotal+taxes}</strong></td>
+                        <td className="fs-3 text-end"><strong>${subtotal + taxes}</strong></td>
                     </tr>
                 </tbody>
             </table>
