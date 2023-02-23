@@ -2,9 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { toast } from 'react-toastify';
+import { createOrder, getOrder, getProduct, updateProduct } from '../../firebase/firebase';
 
 const Checkout = () => {
-    const {cart, getSubtotal} = useCartContext();
+    const {cart, getSubtotal, emptyCart} = useCartContext();
     const formData = React.useRef();
     let navigate = useNavigate();
 
@@ -19,11 +20,25 @@ const Checkout = () => {
         const data = new FormData(formData.current); // generate iterator
         const customerData = Object.fromEntries(data); // convert iterator to object
         console.log(customerData);
-        
-        e.target.reset(); // Reset form
 
-        toast.success("Your order was placed successfully!");
-        navigate("/"); // Redirect to homepage
+        // update stock of products
+        const aux = [...cart];
+        aux.forEach(prodCart => {
+            getProduct(prodCart.id).then(prodDb => {
+                prodDb.stock -= prodCart.qty;
+                updateProduct(prodCart.id, prodDb);
+            });
+        });
+
+        // create new order
+        createOrder(customerData, aux, total, new Date().toISOString()).then(order => {
+            e.target.reset(); // Reset form
+
+            toast.success(`Your order was placed successfully!\nID: ${order.id}\nTotal: $ ${new Intl.NumberFormat('de-DE').format(total)}`);
+            
+            emptyCart();
+            navigate("/");
+        });
     };
 
     return (
@@ -47,12 +62,16 @@ const Checkout = () => {
                         <input type="email" className="form-control" name="email" />
                     </div>
                     <div className="mb-3">
+                        <label htmlFor="confirm_email" className="form-label">Confirm Email</label>
+                        <input type="email" className="form-control" name="confirm_email" />
+                    </div>
+                    <div className="mb-3">
                         <label htmlFor="phone" className="form-label">Phone</label>
                         <input type="number" className="form-control" name="phone" />
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="message" className="form-label">Message</label>
-                        <textarea className="form-control" name="message" rows={3} defaultValue={""} />
+                        <label htmlFor="address" className="form-label">Address</label>
+                        <textarea className="form-control" name="address" rows={3} defaultValue={""} />
                     </div>
 
                     <button type="submit" className="btn btn-primary">Place Order</button>

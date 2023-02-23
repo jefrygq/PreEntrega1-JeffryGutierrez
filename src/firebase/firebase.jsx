@@ -55,3 +55,20 @@ export const getProduct = async (id) => {
 export const updateProduct = async (id, data) => {
     return await updateDoc(doc(db, "products", id), data);
 }
+
+export const createOrder = async (customer, products, total, dateOrdered) => {
+    const order = await addDoc(collection(db, "orders"), {
+        customer: customer,
+        products: products,
+        total: total,
+        dateOrdered: dateOrdered
+    });
+    
+    return order;
+}
+
+export const getOrder = async (id) => {
+    const responseOrder = await getDoc(doc(db, "orders", id));
+
+    return {...responseOrder.data(), id: responseOrder.id};
+}
