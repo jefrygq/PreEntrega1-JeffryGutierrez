@@ -21,6 +21,11 @@ const Checkout = () => {
         const customerData = Object.fromEntries(data); // convert iterator to object
         console.log(customerData);
 
+        if(customerData.email != customerData.confirm_email) {
+            toast.error("Emails don't match");
+            return false;
+        }
+
         // update stock of products
         const aux = [...cart];
         aux.forEach(prodCart => {
