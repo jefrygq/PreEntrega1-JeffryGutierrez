@@ -5,14 +5,14 @@ export const useDarkModeContext = () => useContext(DarkModeContext);
 
 export const DarkModeProvider = (props) => {
     const [darkMode, setDarkMode] = useState(false);
-    console.log(darkMode);
+    // console.log(darkMode);
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);    
     };
 
     useEffect(() => {
-        console.log(darkMode);
+        // console.log(darkMode);
 
         if(darkMode) {
             document.body.classList.add('bg-dark', 'text-white');

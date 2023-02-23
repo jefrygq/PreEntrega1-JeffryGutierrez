@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/CartContext";
 
 
-const CartWidget = ({qty}) => {
+const CartWidget = () => {
+  const { countProducts } = useCartContext();
+  let count = countProducts();
+  
   return (
     <>
         <Link to="/cart" className="btn my-2 my-sm-0 text-light position-relative">
@@ -12,7 +16,7 @@ const CartWidget = ({qty}) => {
                 top: '10px !important',
                 fontWeight: 'bold'
             }}>
-            {qty}
+            {count}
             <span className="visually-hidden">Itesm in cart</span>
           </span>
         </Link>

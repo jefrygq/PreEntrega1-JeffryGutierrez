@@ -10,7 +10,7 @@ export const CartProvider = (props) => {
     // add product
     const addProduct = (product, qty) => {
         if(productInCart(product.id)) {
-            const index = cart.indexOf(p => p.id === product.id);
+            const index = cart.findIndex(p => p.id === product.id);
             const aux = [...cart];
             aux[index].qty += qty;
 
@@ -24,12 +24,12 @@ export const CartProvider = (props) => {
 
     // calculate subtotal
     const getSubtotal = () => {
-        return cart.reduce((accumulator, prod) => {accumulator += (prod.qty * prod.price)}, 0);
+        return cart.reduce((accumulator, prod) => accumulator += (prod.qty * prod.precio), 0);
     };
 
     // count products
     const countProducts = () => {
-        return cart.reduce((accumulator, prod) => {accumulator += prod.qty}, 0);
+        return cart.reduce((accumulator, prod) => accumulator += prod.qty, 0);
     };
 
     // empty cart

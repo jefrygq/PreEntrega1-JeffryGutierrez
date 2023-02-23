@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/CartContext";
 import { useDarkModeContext } from "../../context/DarkmodeContext";
 
-const CartTotals = ({products}) => {
+const CartTotals = () => {
     const {darkMode} = useDarkModeContext();
-    const iva = 0.13;
-    const subtotal = products.reduce(
-        (accumulator, currentProd) => accumulator + (currentProd.precio * currentProd.qty),
-        0
-    );
+    const {getSubtotal} = useCartContext();
 
-    let taxes = subtotal*iva;
+    const iva = 0.13;
+    const subtotal = getSubtotal();
+    const taxes = subtotal*iva;
 
     return (
         <div className="col-6 float-end clearfix">
