@@ -21,7 +21,7 @@ const ItemListContainer = () => {
             const idCategory = categoryMap[categoryName];
             
             if(idCategory) {
-                items = products.filter(prod => prod.idCategoria === idCategory);
+                items = products.filter(prod => prod.stock > 0).filter(prod => prod.idCategoria === idCategory);
             }
 
             const productsList = ItemList({items});
