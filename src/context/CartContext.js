@@ -24,12 +24,12 @@ export const CartProvider = (props) => {
 
     // calculate subtotal
     const getSubtotal = () => {
-        return cart.reduce((accumulator, prod) => {accumulator + (prod.qty * prod.price)}, 0);
+        return cart.reduce((accumulator, prod) => {accumulator += (prod.qty * prod.price)}, 0);
     };
 
     // count products
     const countProducts = () => {
-        return cart.reduce((accumulator, prod) => {accumulator + prod.qty}, 0);
+        return cart.reduce((accumulator, prod) => {accumulator += prod.qty}, 0);
     };
 
     // empty cart
@@ -37,7 +37,7 @@ export const CartProvider = (props) => {
 
     // product exists
     const productInCart = (prod_id) => {
-        return cart.find(prod => prod.id === id);
+        return cart.find(prod => prod.id === prod_id);
     };
 
     // remove product
