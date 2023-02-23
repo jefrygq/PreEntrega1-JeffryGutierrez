@@ -4,6 +4,7 @@ import CartWidget from "../CartWidget/CartWidget";
 import SearchWidget from "../SearchWidget/SearchWidget";
 import Sections from "../Sections/Sections";
 import React from "react";
+import DarkModeButton from "../DarkModeButton/DarkModeButton";
 
 const NavBar = React.memo(() => {
   return (
@@ -14,9 +15,10 @@ const NavBar = React.memo(() => {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav mb-2 mb-lg-0">
               <Sections />
           </ul>
+          <DarkModeButton />
           <SearchWidget />
           <CartWidget qty={5} />
         </div>

@@ -1,8 +1,11 @@
+import { useDarkModeContext } from "../../context/DarkmodeContext";
 import ItemList from "../ItemList/ItemList";
 
 const CartTable = ({products}) => {
+    const {darkMode} = useDarkModeContext();
+
     return (
-        <table className="table table-hover">
+        <table className={`table table-hover ${darkMode?'table-dark':''}`}>
             <thead>
                 <tr>
                     <th scope="col">Image</th>

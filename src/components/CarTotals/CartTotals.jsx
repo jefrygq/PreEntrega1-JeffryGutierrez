@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useDarkModeContext } from "../../context/DarkmodeContext";
 
 const CartTotals = ({products}) => {
+    const {darkMode} = useDarkModeContext();
     const iva = 0.13;
     const subtotal = products.reduce(
         (accumulator, currentProd) => accumulator + (currentProd.precio * currentProd.qty),
@@ -11,7 +13,7 @@ const CartTotals = ({products}) => {
 
     return (
         <div className="col-6 float-end clearfix">
-            <table className="table">
+            <table className={`table ${darkMode?'table-dark':''}`}>
                 <tbody>
                     <tr>
                         <td>Subtotal:</td>
