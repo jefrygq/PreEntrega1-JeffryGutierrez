@@ -55,11 +55,11 @@ const Checkout = () => {
                 <form onSubmit={queryForm} ref={formData}>
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Full Name</label>
-                        <input type="text" className="form-control" name="name"/>
+                        <input type="text" className="form-control" name="name" required/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Email</label>
-                        <input type="email" className="form-control" name="email" />
+                        <input type="email" className="form-control" name="email" required />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="confirm_email" className="form-label">Confirm Email</label>
@@ -71,7 +71,7 @@ const Checkout = () => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="address" className="form-label">Address</label>
-                        <textarea className="form-control" name="address" rows={3} defaultValue={""} />
+                        <textarea className="form-control" name="address" required rows={3} defaultValue={""} />
                     </div>
 
                     <button type="submit" className="btn btn-primary">Place Order</button>
