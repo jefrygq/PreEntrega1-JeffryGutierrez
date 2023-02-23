@@ -10,6 +10,8 @@ import ItemDetailsContainer from './components/ItemDetailsContainer/ItemDetailsC
 import NavBar from './components/NavBar/NavBar';
 import Cart from './components/Cart/Cart';
 import ContactForm from './components/ContactForm/ContactForm';
+import Checkout from './components/Checkout/Checkout';
+
 // import { loadDB } from './firebase/firebase';
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
               <Route path='/category/:categoryName' element={<ItemListContainer/>} />
               <Route path='/cart' element={<Cart />} />
               <Route path='/contact' element={<ContactForm />} />
+              <Route path='/checkout' element={<Checkout />} />
             </Routes>
             <ToastContainer/>
           </DarkModeProvider>
