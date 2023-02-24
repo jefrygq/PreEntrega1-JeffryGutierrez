@@ -6,14 +6,14 @@ _Final project, ecommerce_
 
 In the project directory, you can run:
 
-1. Install all dependanceies
+1. Install all dependancies
 ```
--npm install
+npm install
 ```
 
-2. Install all dependanceies
+2. Run project
 ```
--npm start
+npm start
 ```
 3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
